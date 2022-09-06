@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="#">Add Student Page</a>
+
+</nav>
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Create New Student </h1>
+            <div class = "card-body">
+                <form th:action="@{/save-student}" th:object = "${student}" method="POST">
+                    <div class ="form-group">
+                        <input type="hidden" th:field="*{id}">
+
+                        <label> Student Name </label>
+                        <input
+                                type = "text"
+                                name = "Name"
+                                th:field = "*{name}"
+                                class = "form-control"
+                                placeholder="Enter Student Name"
+                                required
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Student Mobile Number </label>
+                        <input
+                                type = "text"
+                                name = "Mobile"
+                                th:field = "*{mobile}"
+                                class = "form-control"
+                                placeholder="Enter Student Mobile Number"
+                                required
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Student Country </label>
+                        <input
+                                type = "text"
+                                name = "email"
+                                th:field = "*{contry}"
+                                class = "form-control"
+                                placeholder="Enter Student Country"
+                                required
+                        />
+                    </div>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
